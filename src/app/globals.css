@@ -725,22 +725,24 @@ main.container {
   }
 
   .chat-composer {
-    padding: 12px 14px 16px;
+    padding: 10px 8px 14px;
   }
   .chat-composer textarea {
-    min-height: 64px;
-    padding: 12px;
+    min-height: 60px;
+    padding: 10px;
   }
 
   .button-primary,
   .button-secondary {
-    padding: 10px 14px;
-    font-size: 0.95rem;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    flex: 1;
   }
 
-  /* Make composer actions stack if needed */
+  /* Make composer actions stack vertically if needed */
   .composer-actions {
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 8px;
   }
 
   /* Improve scroll area touch targets */
