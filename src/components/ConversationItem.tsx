@@ -1,19 +1,21 @@
-function formatTimeAgo(dateString: string) {
-  const diff = Date.now() - new Date(dateString).getTime();
-  const minutes = Math.floor(diff / 60000);
-  if (minutes < 1) return "agora";
-  if (minutes < 60) return `${minutes}m`;
-  const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h`;
-  const days = Math.floor(hours / 24);
-  return `${days}d`;
-}
+"use client";
 
 export default function ConversationItem({
   conversation,
   onSelect,
   selected,
 }: any) {
+  function timeAgo(dateString: string) {
+    const diff = Date.now() - new Date(dateString).getTime();
+    const minutes = Math.floor(diff / 60000);
+    if (minutes < 1) return "agora";
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h`;
+    const days = Math.floor(hours / 24);
+    return `${days}d`;
+  }
+
   return (
     <button
       type="button"
@@ -30,7 +32,7 @@ export default function ConversationItem({
         <div className="conversation-head">
           <span className="conversation-name">{conversation.contactName}</span>
           <span className="conversation-time">
-            {formatTimeAgo(conversation.lastMessageAt)}
+            {timeAgo(conversation.lastMessageAt)}
           </span>
         </div>
         <p className="conversation-preview">{conversation.lastMessage}</p>

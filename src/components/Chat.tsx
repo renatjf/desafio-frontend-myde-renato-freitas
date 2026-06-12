@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useAiSuggestion } from "@/features/ai/hooks";
 import { useMessages, useSendMessage } from "@/features/messages/hooks";
 import ChatHeader from "@/components/ChatHeader";
+import Time from "@/components/Time";
 
 export default function Chat({ id, conversation }: any) {
   const { data, isLoading, isError } = useMessages(id);
@@ -61,10 +62,7 @@ export default function Chat({ id, conversation }: any) {
               >
                 <p>{message.body ?? message.content}</p>
                 <span className="message-meta">
-                  {new Date(message.createdAt).toLocaleTimeString("pt-BR", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  <Time iso={message.createdAt} />
                   {isOutgoing ? ` • ${message.status ?? "enviado"}` : ""}
                 </span>
               </div>
