@@ -84,3 +84,5 @@ Fluxo de dados:
 - O projeto usa `axios` para chamadas HTTP e o endpoint de mensagem espera payload `{ text }`.
 - Arquivos gerados como `node_modules/` e `.next/` estão ignorados pelo `.gitignore`.
   - Obrigado pela oportunidade
+  - Projeto funcionando - https://desafio-front-myde-next.netlify.app/
+  - Github do projeto publico: https://github.com/renatjf/desafio-frontend-myde-renato-freitas
