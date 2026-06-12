@@ -5,7 +5,7 @@ import { useMessages, useSendMessage } from "@/features/messages/hooks";
 import ChatHeader from "@/components/ChatHeader";
 import Time from "@/components/Time";
 
-export default function Chat({ id, conversation }: any) {
+export default function Chat({ id, conversation, onToggleSidebar }: any) {
   const { data, isLoading, isError } = useMessages(id);
   const send = useSendMessage(id);
   const ai = useAiSuggestion();
@@ -30,7 +30,10 @@ export default function Chat({ id, conversation }: any) {
 
   return (
     <div className="chat-panel">
-      <ChatHeader conversation={conversation} />
+      <ChatHeader
+        conversation={conversation}
+        onToggleSidebar={onToggleSidebar}
+      />
 
       <div className="chat-content">
         {isLoading && (

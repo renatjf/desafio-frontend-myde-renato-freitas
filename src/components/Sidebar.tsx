@@ -9,6 +9,7 @@ export default function Sidebar({
   onSelect,
   isLoading,
   isError,
+  onClose,
 }: any) {
   const [query, setQuery] = useState("");
 
@@ -36,6 +37,16 @@ export default function Sidebar({
             <span className="sidebar-user-name">Atendimento</span>
           </div>
         </div>
+        {onClose && (
+          <button
+            type="button"
+            className="sidebar-close icon-button"
+            aria-label="Fechar conversas"
+            onClick={onClose}
+          >
+            ×
+          </button>
+        )}
         <button
           type="button"
           className="sidebar-new-chat"

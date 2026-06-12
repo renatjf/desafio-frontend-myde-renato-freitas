@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simple SVG placeholder saved with .jpg extension as a lightweight og image -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="100%" height="100%" fill="#075e54" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif" font-weight="700">
+    <text x="60" y="220" font-size="64">MyDE</text>
+    <text x="60" y="320" font-size="40">Inbox — Conversas</text>
+  </g>
+</svg>

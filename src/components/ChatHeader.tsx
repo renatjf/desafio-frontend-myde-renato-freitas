@@ -1,4 +1,4 @@
-import { MoreVertical, Phone, Search, Video } from "lucide-react";
+import { MoreVertical, Phone, Search, Video, Menu } from "lucide-react";
 
 function formatPhone(phone?: string) {
   if (!phone) return "";
@@ -24,7 +24,7 @@ function formatPhone(phone?: string) {
   return phone;
 }
 
-export default function ChatHeader({ conversation }: any) {
+export default function ChatHeader({ conversation, onToggleSidebar }: any) {
   if (!conversation) {
     return (
       <div className="chat-header">
@@ -44,6 +44,16 @@ export default function ChatHeader({ conversation }: any) {
   return (
     <div className="chat-header">
       <div className="chat-header-left">
+        {onToggleSidebar && (
+          <button
+            type="button"
+            className="icon-button mobile-menu-button"
+            aria-label="Abrir conversas"
+            onClick={onToggleSidebar}
+          >
+            <Menu size={18} />
+          </button>
+        )}
         <div className="chat-avatar">
           {conversation.contactName?.[0] ?? "?"}
         </div>

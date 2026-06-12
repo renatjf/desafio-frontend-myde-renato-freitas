@@ -6,6 +6,7 @@ import { useConversations } from "@/features/conversations/hooks";
 
 export default function Page() {
   const [selectedId, setSelectedId] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const { data: conversations, isLoading, isError } = useConversations();
   const selectedConversation = conversations?.find(
     (conversation: any) => conversation.id === selectedId,
@@ -19,15 +20,26 @@ export default function Page() {
 
   return (
     <main className="container">
-      <Sidebar
-        conversations={conversations}
-        selectedId={selectedId}
-        onSelect={setSelectedId}
-        isLoading={isLoading}
-        isError={isError}
-      />
+      <div className={`sidebar-wrapper ${sidebarOpen ? "open" : "closed"}`}>
+        <Sidebar
+          conversations={conversations}
+          selectedId={selectedId}
+          onSelect={(id: string) => {
+            setSelectedId(id);
+            // close sidebar on mobile when a conversation is selected
+            setSidebarOpen(false);
+          }}
+          isLoading={isLoading}
+          isError={isError}
+          onClose={() => setSidebarOpen(false)}
+        />
+      </div>
       <section className="chat-pane">
-        <Chat id={selectedId} conversation={selectedConversation} />
+        <Chat
+          id={selectedId}
+          conversation={selectedConversation}
+          onToggleSidebar={() => setSidebarOpen((v) => !v)}
+        />
       </section>
     </main>
   );
