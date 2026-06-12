@@ -106,21 +106,21 @@ main.container {
 .sidebar-user-name {
   margin: 2px 0 0;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #111827;
 }
 
 .sidebar-new-chat {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
+  justify-content: center;
   border: none;
   border-radius: 999px;
   background: #25d366;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
+  gap: 6px;
 }
 
 .sidebar-new-chat:hover {
@@ -258,7 +258,7 @@ main.container {
 }
 
 .conversation-name {
-  font-weight: 700;
+  font-weight: 500;
   color: #0f172a;
 }
 
@@ -533,5 +533,110 @@ main.container {
 
   .chat-composer textarea {
     min-height: 96px;
+  }
+}
+
+/* Mobile refinements: make chat primary, compact UI and readable buttons */
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+
+  main.container {
+    padding: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  /* Sidebar becomes a full-width block below chat, but with compact styling */
+  .sidebar {
+    border-radius: 12px;
+    margin-top: 12px;
+    min-height: auto;
+    box-shadow: none;
+    border: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .sidebar-topbar {
+    padding: 12px 14px;
+  }
+
+  .sidebar-user-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .conversation-item {
+    grid-template-columns: 48px 1fr auto;
+    padding: 10px 14px;
+  }
+
+  .conversation-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .conversation-name {
+    font-size: 0.98rem;
+  }
+  .conversation-preview {
+    font-size: 0.88rem;
+  }
+
+  /* Chat panel takes full width and grows vertically */
+  .chat-panel {
+    border-radius: 12px;
+    box-shadow: none;
+    border: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .chat-header {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .chat-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  .chat-title {
+    font-size: 1.05rem;
+  }
+
+  .chat-content {
+    padding: 16px 16px;
+  }
+
+  .message {
+    max-width: 92%;
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  .chat-composer {
+    padding: 12px 14px 16px;
+  }
+  .chat-composer textarea {
+    min-height: 64px;
+    padding: 12px;
+  }
+
+  .button-primary,
+  .button-secondary {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+
+  /* Make composer actions stack if needed */
+  .composer-actions {
+    justify-content: space-between;
+  }
+
+  /* Improve scroll area touch targets */
+  .conversation-list,
+  .messages {
+    -webkit-overflow-scrolling: touch;
   }
 }
